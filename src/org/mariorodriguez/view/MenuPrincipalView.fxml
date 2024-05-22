@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mariorodriguez.controller.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="646.0" fitWidth="613.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Fondo.jpeg" />
+         </image>
+      </ImageView>
+      <MenuBar layoutX="25.0" prefHeight="25.0" prefWidth="215.0" scaleX="1.25" scaleY="1.25" scaleZ="1.25" style="-fx-background-color: f9efd3;" translateX="1.25" translateY="1.25" translateZ="1.25" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulos">
+            <items>
+                  <MenuItem fx:id="btnProveedores" mnemonicParsing="false" onAction="#click" text="Proveedores" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnCompras" mnemonicParsing="false" onAction="#click" text="Compras" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnTipoProducto" mnemonicParsing="false" onAction="#click" text="Tipo de producto" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnCargos" mnemonicParsing="false" onAction="#click" text="Cargos" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#click" text="Clientes" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Compra y venta de productos" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Inventario" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Salario" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Acerca de">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Ayuda" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnProgramador" mnemonicParsing="false" onAction="#click" text="Programador" />
+            </items>
+          </Menu>
+        </menus>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </MenuBar>
+      <ImageView fitHeight="138.0" fitWidth="141.0" layoutX="496.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnSalir" layoutX="555.0" layoutY="560.0" mnemonicParsing="false" onAction="#click" style="-fx-background-color: f9efd3;" styleClass="button4" stylesheets="@../resource/KinalRapiCSS.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/boton-salir.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

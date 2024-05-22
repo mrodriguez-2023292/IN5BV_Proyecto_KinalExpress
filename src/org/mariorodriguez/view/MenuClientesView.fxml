@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mariorodriguez.controller.MenuClientesController">
+   <children>
+      <ImageView fitHeight="590.0" fitWidth="1017.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ClientesView.jpg" />
+         </image>
+      </ImageView>
+      <GridPane alignment="CENTER" layoutX="297.0" layoutY="346.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="425.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnEliminar" layoutY="13.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#eliminar" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Eliminar" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fx:id="imgEliminar" fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/quitar-usuario.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReportes" layoutY="43.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#reportes" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Reportes" GridPane.columnIndex="3">
+               <graphic>
+                  <ImageView fx:id="imgReportes" fitHeight="50.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reporte.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEditar" layoutY="82.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#editar" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Editar" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/usuario%20editar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnAgregar" layoutX="10.0" layoutY="104.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#agregar" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Agregar">
+               <graphic>
+                  <ImageView fx:id="imgAgregar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/agregar-usuario.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER_RIGHT" layoutX="198.0" layoutY="420.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="75.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="110.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.66665649414062" minWidth="10.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.66665649414062" minWidth="75.0" prefWidth="48.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.66668701171875" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.33331298828125" minWidth="10.0" prefWidth="87.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="102.33331298828125" minHeight="10.0" prefHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="173.33334350585938" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" text="NIT" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNIT" GridPane.columnIndex="5" />
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="154.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" text="Nombre" GridPane.halignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTelefono" layoutX="226.0" layoutY="30.0" GridPane.columnIndex="3" />
+            <Label layoutX="10.0" layoutY="30.0" text="Telefono" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="95.0" text="Apellido" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNombre" layoutX="82.0" layoutY="30.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtApellido" layoutX="82.0" layoutY="95.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Correo" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCorreo" prefHeight="25.0" prefWidth="180.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label text="Direccion" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtDireccion" prefHeight="25.0" prefWidth="180.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <TableView fx:id="tblClientes" layoutX="184.0" layoutY="166.0" onMouseClicked="#selecionarElemento" prefHeight="165.0" prefWidth="650.0" styleClass="table-row-cell" stylesheets="@../resource/KinalRapiCSS.css">
+        <columns>
+          <TableColumn fx:id="colCodigoC" prefWidth="93.0" text="ID" />
+          <TableColumn fx:id="colNITC" prefWidth="93.0" text="NIT" />
+            <TableColumn fx:id="colNombreC" prefWidth="93.0" text="Nombre" />
+            <TableColumn fx:id="colApellidoC" prefWidth="93.0" text="Apellido" />
+            <TableColumn fx:id="colDireccionC" prefWidth="93.0" text="Direccion" />
+            <TableColumn fx:id="colTelefonoC" prefWidth="93.0" text="Telefono" />
+            <TableColumn fx:id="colCorreoC" prefWidth="93.0" text="Correo" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnRegresar" layoutX="11.0" layoutY="524.0" mnemonicParsing="false" onAction="#clickMenuPrincipal" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Regresar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
