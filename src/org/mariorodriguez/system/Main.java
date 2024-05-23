@@ -14,6 +14,7 @@ import org.mariorodriguez.controller.CargosController;
 import org.mariorodriguez.controller.ComprasController;
 import org.mariorodriguez.controller.MenuClientesController;
 import org.mariorodriguez.controller.MenuPrincipalController;
+import org.mariorodriguez.controller.ProductosController;
 import org.mariorodriguez.controller.ProgramadorController;
 import org.mariorodriguez.controller.ProveedorController;
 import org.mariorodriguez.controller.TipoProductosController;
@@ -101,6 +102,15 @@ public class Main extends Application {
         try{
             ComprasController comprasView = (ComprasController)cambiarEscena("ComprasView.fxml", 1024, 575);
             comprasView.setEscenarioPrincipalCompras(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void productosView(){
+        try{
+            ProductosController productosView = (ProductosController)cambiarEscena("ProductosView.fxml", 1017, 562);
+            productosView.setEscenarioPrincipalProductos(this);
         }catch(Exception e){
             e.printStackTrace();
         }

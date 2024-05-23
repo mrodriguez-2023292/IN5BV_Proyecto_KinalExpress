@@ -25,6 +25,8 @@
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="btnCompras" mnemonicParsing="false" onAction="#click" text="Compras" />
                   <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnProductos" mnemonicParsing="false" onAction="#click" text="Productos" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="btnTipoProducto" mnemonicParsing="false" onAction="#click" text="Tipo de producto" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="btnCargos" mnemonicParsing="false" onAction="#click" text="Cargos" />
