@@ -280,6 +280,15 @@ Delimiter ;
 
 call sp_AgregarClientes('114006350', 'Juan', 'Rivas', 'Zona 7', '23002626', 'mrodriguez-2023292@kinal.edu.gt');
 call sp_AgregarClientes('254849542', 'Pablo', 'Guillen', 'Zona 18', '54861278', 'dmorente-2023242@kinal.edu.gt');
+call sp_AgregarClientes('123456789', 'Carlos', 'Martinez', 'Zona 1', '55512345', 'cmartinez@example.com');
+call sp_AgregarClientes('987654321', 'Maria', 'Lopez', 'Zona 5', '55567890', 'mlopez@example.com');
+call sp_AgregarClientes('456789123', 'Juan', 'Perez', 'Zona 3', '55534567', 'jperez@example.com');
+call sp_AgregarClientes('321654987', 'Ana', 'Garcia', 'Zona 7', '55578901', 'agarcia@example.com');
+call sp_AgregarClientes('654321987', 'Luis', 'Ramirez', 'Zona 10', '55545678', 'lramirez@example.com');
+call sp_AgregarClientes('789123456', 'Elena', 'Gomez', 'Zona 12', '55589012', 'egomez@example.com');
+call sp_AgregarClientes('135792468', 'Jose', 'Mendez', 'Zona 4', '55556789', 'jmendez@example.com');
+call sp_AgregarClientes('246813579', 'Claudia', 'Fernandez', 'Zona 6', '55567891', 'cfernandez@example.com');
+call sp_AgregarClientes('135792468', 'Pedro', 'González', 'Zona 3', '55512345', 'pgonzalez@example.com');
 
 -- Listar clientes --
 
@@ -438,6 +447,15 @@ Delimiter ;
 
 call sp_AgregarProveedores('114006350', 'Alejandro ', 'Martínez', 'Zona 7', 'TechSolutions S.A. de C.V.', 'María García','www.innovatetechsolutions.com');
 call sp_AgregarProveedores('949474654', 'Sofia ', 'Rodriguez', 'Zona 8', 'GlobalTech Solutions, Inc.', 'Marco Ortiz','www.succionaproblemas.com');
+call sp_AgregarProveedores('123456789', 'Carlos', 'Martinez', 'Zona 1', 'Tech Innovators Ltd.', 'Juan Perez', 'www.techinnovators.com');
+call sp_AgregarProveedores('987654321', 'Maria', 'Lopez', 'Zona 5', 'Creative Supplies Co.', 'Ana Gomez', 'www.creativesupplies.com');
+call sp_AgregarProveedores('456789123', 'Juan', 'Perez', 'Zona 3', 'Advanced Systems LLC', 'Luis Garcia', 'www.advancedsystems.com');
+call sp_AgregarProveedores('321654987', 'Ana', 'Garcia', 'Zona 7', 'Prime Resources Corp.', 'Carlos Hernandez', 'www.primeresources.com');
+call sp_AgregarProveedores('654321987', 'Luis', 'Ramirez', 'Zona 10', 'Elite Solutions Ltd.', 'Sofia Diaz', 'www.elitesolutions.com');
+call sp_AgregarProveedores('789123456', 'Elena', 'Gomez', 'Zona 12', 'Dynamic Supplies Inc.', 'Miguel Rodriguez', 'www.dynamicsupplies.com');
+call sp_AgregarProveedores('135792468', 'Jose', 'Mendez', 'Zona 4', 'Quality Parts Co.', 'Laura Martinez', 'www.qualityparts.com');
+call sp_AgregarProveedores('246813579', 'Claudia', 'Fernandez', 'Zona 6', 'Precision Tools Ltd.', 'Ricardo Sanchez', 'www.precisiontools.com');
+call sp_AgregarProveedores('357924681', 'Laura', 'González', 'Zona 9', 'Tech Solutions LLC', 'Roberto Martínez', 'www.techsolutions.com');
 
 -- Listar proveedores --
 
@@ -465,6 +483,32 @@ call sp_EditarProveedores(2, '000000000', 'Diego', 'Herrera', 'Zona 0', 'Manimal
        
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- -- -- -- -- -- -- -- Trigger -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
+delimiter $$
+
+	create trigger Actualizar_total
+	after insert on DetalleCompra
+	for each row
+		begin
+		  declare total decimal(10,  2);
+
+		  -- Obtener el total y la cantidad desde la entidad DetalleCompra
+		  select New.costoUnitario * New.cantidad
+		  into total
+		  from DetalleCompra
+		  where codigoDetalleCompra = New.codigoDetalleCompra;
+          
+		  -- Actualizar los precios en la entidad Productos
+		  Update Compras
+		  set totalDocumento = total
+		  where numeroDocumento = NEW.codigoDetalleCompra;
+		end $$
+    
+delimiter ;
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Procedimientos almacenados -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -559,6 +603,15 @@ Delimiter ;
 
 call sp_AgregarCompras('2002-10-01', 'Es el mejor peluche que vas a ver en tu vida');
 call sp_AgregarCompras('2007-05-30', 'Compraste la espada de un maestro perdido');
+call sp_AgregarCompras('2023-06-10', 'Compraste un antiguo manuscrito de alquimia');
+call sp_AgregarCompras('2024-01-15', 'Adquiriste una colección rara de sellos');
+call sp_AgregarCompras('2022-09-05', 'Compraste una escultura renacentista');
+call sp_AgregarCompras('2023-11-20', 'Adquiriste un conjunto de monedas históricas');
+call sp_AgregarCompras('2023-03-25', 'Compraste un libro antiguo de navegación');
+call sp_AgregarCompras('2024-02-14', 'Adquiriste una pieza de arte impresionista');
+call sp_AgregarCompras('2022-12-01', 'Compraste una espada ceremonial de la dinastía Ming');
+call sp_AgregarCompras('2023-08-17', 'Adquiriste un violín Stradivarius');
+call sp_AgregarCompras('2024-01-30', 'Compraste una escultura moderna');
 
 -- Listar compras --
 
@@ -671,6 +724,15 @@ Delimiter ;
 
 call sp_AgregarTipoProductos('Es de un tipo indestructible');
 call sp_AgregarTipoProductos('Se considera peligroso');
+call sp_AgregarTipoProductos('Es de un tipo increiblemente fuerte');
+call sp_AgregarTipoProductos('Se considera peligroso');
+call sp_AgregarTipoProductos('Es altamente inflamable');
+call sp_AgregarTipoProductos('Es de un tipo biodegradable');
+call sp_AgregarTipoProductos('Es extremadamente raro');
+call sp_AgregarTipoProductos('Se requiere manejo especial');
+call sp_AgregarTipoProductos('Es de un tipo reciclable');
+call sp_AgregarTipoProductos('Se utiliza en medicina avanzada');
+call sp_AgregarTipoProductos('Es esencial en tratamientos de rehabilitación');
 
 -- Listar tipo de producto --
 
@@ -690,7 +752,7 @@ call sp_EliminarTipoProductos(1);
       
 -- Editar tipo de producto --
 
-call sp_EditarTipoProductos(2, 'Se considera de rango S');
+call sp_EditarTipoProductos(2, 'Se considera de rango alto');
 
 	-- Comprobacion --
     
@@ -789,6 +851,15 @@ Delimiter ;
 
 call sp_AgregarCargoEmpleado('Ingeniero de Software', 'Diseña, desarrolla y software.');
 call sp_AgregarCargoEmpleado('Analista de Marketing Digital', 'Analiza datos y tendencias del mercado.');
+call sp_AgregarCargoEmpleado('Gerente de Proyecto', 'Supervisa la planificación y ejecución de proyectos.');
+call sp_AgregarCargoEmpleado('Analista de Datos', 'Interpreta datos para la toma de decisiones.');
+call sp_AgregarCargoEmpleado('Desarrollador Web', 'Diseña, codifica y modifica sitios web.');
+call sp_AgregarCargoEmpleado('Administrador de Sistemas', 'Mantiene y administra la infraestructura de TI.');
+call sp_AgregarCargoEmpleado('Especialista en Ciberseguridad', 'Protege los sistemas y datos contra amenazas.');
+call sp_AgregarCargoEmpleado('Diseñadora Gráfica', 'Crea gráficos y diseños visuales.');
+call sp_AgregarCargoEmpleado('Soporte Técnico', 'Asistencia y solución de problemas técnicos.');
+call sp_AgregarCargoEmpleado('Marketing Digital', 'Desarrolla estrategias de marketing.');
+call sp_AgregarCargoEmpleado('Especialista en Redes Sociales', 'Optimiza la presencia en plataformas sociales.');
 
 -- Listar cargo empleado --
 
@@ -815,7 +886,6 @@ call sp_EditarCargoEmpleado(2, 'Diseñador grafico', 'Diseña mensajes efectivos
 	   call sp_ListarCargoEmpleado();
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Procedimientos almacenados -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Productos -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
@@ -828,10 +898,6 @@ Delimiter $$
 	create procedure sp_AgregarProductos(
     in codigoProducto varchar(15),
     in descripcionProducto varchar(45),
-    in precioUnitario decimal(10,2),
-    in precioDocena decimal(10,2),
-    in precioMayor decimal(10,2),
-    in existencia int,
     in TipoProducto_codigoTipoProducto int,
     in Proveedores_codigoProveedor int
     )
@@ -839,18 +905,10 @@ Delimiter $$
 			Insert into Productos(
             codigoProducto,
 			descripcionProducto,
-            precioUnitario,
-			precioDocena,
-			precioMayor,
-			existencia,
 			TipoProducto_codigoTipoProducto,
 			Proveedores_codigoProveedor) values (
             codigoProducto,
 			descripcionProducto,
-            precioUnitario,
-			precioDocena,
-			precioMayor,
-			existencia,
 			TipoProducto_codigoTipoProducto,
 			Proveedores_codigoProveedor);
 		End $$
@@ -911,15 +969,11 @@ Delimiter ;
 -- EDITAR --
 
 Delimiter $$
-	create procedure sp_EditarProducto(in codPro varchar(15), in desPro varchar(45), in preU decimal(10,2), in preD decimal(10,2), in preM decimal(10,2), in exis int, in TPro_codTP int, in Pro_codPro int)
+	create procedure sp_EditarProducto(in codPro varchar(15), in desPro varchar(45), in TPro_codTP int, in Pro_codPro int)
 		Begin
 			Update Productos Pro
 				set
 				 Pro.descripcionProducto = desPro,
-                 Pro.precioUnitario = preU,
-                 Pro.precioDocena = preD,
-                 Pro.precioMayor = preM,
-				 Pro.existencia = exis,
 				 Pro.TipoProducto_codigoTipoProducto = TPro_codTP,
 				 Pro.Proveedores_codigoProveedor = Pro_codPro
                 where codigoProducto = codPro;
@@ -932,12 +986,17 @@ Delimiter ;
 
 -- Agregar producto --
 
-	-- Necesario para insertar correctamente los datos --
-	call sp_AgregarTipoProductos('Es de un tipo indestructible');
-	call sp_AgregarProveedores('114006350', 'Alejandro ', 'Martínez', 'Zona 7', 'TechSolutions S.A. de C.V.', 'María García','www.innovatetechsolutions.com');
-
-call sp_AgregarProductos('ASD-48', 'Un brebaje mágico que promete rejuvenecer.', 10.00, 20.00, 50.00, 1275, 2, 2);
-call sp_AgregarProductos('DFE-15', 'Dispositivo que emite destellos de luz.', 5.00, 25.00, 100.00, 2500, 3, 3);
+call sp_AgregarProductos('ASD-48', 'Un brebaje mágico que promete rejuvenecer.', 2, 2);
+call sp_AgregarProductos('DFE-15', 'Dispositivo que emite destellos de luz.', 3, 3);
+call sp_AgregarProductos('XRT-22', 'Herramienta para trabajos mecánicos.', 4, 4);
+call sp_AgregarProductos('LKP-09', 'Equipo de laboratorio.', 5, 5);
+call sp_AgregarProductos('ZQW-47', 'Gadget para monitoreo.', 6, 6);
+call sp_AgregarProductos('MNB-33', 'Dispositivo de almacenamiento portátil.', 7, 7);
+call sp_AgregarProductos('HJL-12', 'Aparato para purificación de aire.', 8, 8);
+call sp_AgregarProductos('VFT-07', 'Sistema de seguridad para el hogar.', 9, 9);
+call sp_AgregarProductos('PRQ-21', 'Instrumento de medición.', 10, 10);
+call sp_AgregarProductos('XYZ-45', 'Dispositivo de monitoreo ambiental.', 11, 11);
+call sp_AgregarProductos('ABC-123', 'Herramienta multifuncional.', 2, 2);
 
 -- Listar productos --
 
@@ -957,36 +1016,12 @@ call sp_EliminarProducto('ASD-48');
       
 -- Editar producto --
 
-call sp_EditarProducto('DFE-15', 'Dispositivo que emite destellos de luz.', 7.00, 14.00, 144.00, 5000, 3, 2);
+call sp_EditarProducto('DFE-15', 'Dispositivo para volar', 3, 3);
 
 	-- Comprobacion --
     
 	   call sp_ListarProductos();
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Trigger -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- - Detalle compra -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
-
-DELIMITER $$
-
-	create trigger totalCompra_DetalleCompra
-	before update on DetalleCompra
-	for each row
-		begin
-			declare total_comprado decimal(10, 2);
-
-			-- Calcula el total gastado y la cantidad comprada del producto
-			set total_comprado = new.costoUnitario * new.cantidad;
-			
-			-- Actualiza los precios en Productos
-			update Compras
-			set Compras.totalDocumento = total_comprado
-			where Compras.numeroDocumento = new.codigoDetalleCompra;
-		END $$
-
-DELIMITER ;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Procedimientos almacenados -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -1084,14 +1119,79 @@ Delimiter $$
 		End $$
 Delimiter ;
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- -- -- -- -- -- -- -- Trigger -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
+delimiter $$
+
+	create trigger Actualizar_precios
+	after insert on DetalleCompra
+	for each row
+		begin
+		  declare total decimal(10,  2);
+		  declare cantidad int;
+
+		  -- Obtener el total y la cantidad desde la entidad DetalleCompra
+		  select New.costoUnitario * New.cantidad
+		  into total
+		  from DetalleCompra
+		  where codigoDetalleCompra = New.codigoDetalleCompra;
+          
+		  set cantidad = New.cantidad;
+          
+		  -- Actualizar los precios en la entidad Productos
+		  Update Productos
+		  set precioUnitario = total / cantidad * 0.40,
+			  precioDocena = total / cantidad * 0.35,
+			  precioMayor = total / cantidad * 0.25
+		  where codigoProducto = NEW.Productos_codigoProducto;
+		end $$
+    
+delimiter ;
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- -- -- -- -- -- -- -- Trigger -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
+delimiter $$
+
+	create trigger Actualizar_existencia
+	after insert on DetalleCompra
+	for each row
+		begin
+		  declare existencias int;
+
+		  -- Obtener la cantidad de DetalleCompra para existencias
+		  set existencias = New.cantidad;
+          
+		  -- Actualizar los precios en la entidad Productos
+		  Update Productos
+		  set existencia = existencias
+		  where codigoProducto = NEW.Productos_codigoProducto;
+		end $$
+    
+delimiter ;
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 -- -- Llamado de procedimientos almacenados -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 
 -- Agregar detalle compra --
 
-call sp_AgregarDetalleCompra(100.00, 2, 'DFE-15', 2);
-call sp_AgregarDetalleCompra(20.00, 3, 'DFE-15', 2);
+call sp_AgregarDetalleCompra(10.00, 2, 'ABC-123', 2);
+call sp_AgregarDetalleCompra(20.00, 3, 'DFE-15', 3);
+call sp_AgregarDetalleCompra(5.00, 4, 'HJL-12', 4);
+call sp_AgregarDetalleCompra(3.00, 5, 'LKP-09', 5);
+call sp_AgregarDetalleCompra(12.00, 6, 'MNB-33', 6);
+call sp_AgregarDetalleCompra(11.00, 7, 'PRQ-21', 7);
+call sp_AgregarDetalleCompra(8.00, 8, 'VFT-07', 8);
+call sp_AgregarDetalleCompra(25.00, 9, 'XRT-22', 9);
+call sp_AgregarDetalleCompra(17.00, 10, 'XYZ-45', 10);
+call sp_AgregarDetalleCompra(13.00, 11, 'ZQW-47', 11);
+call sp_AgregarDetalleCompra(16.00, 12, 'ABC-123', 2);
 
 -- Listar detalle compra --
 
@@ -1111,40 +1211,12 @@ call sp_EliminarDetalleCompra(1);
       
 -- Editar detalle compra --
 
-call sp_EditarDetalleCompra(2, 10.00, 1, 'DFE-15', 2);
+call sp_EditarDetalleCompra(2, 10.00, 1, 'DFE-15', 3);
 
 	-- Comprobacion --
     
 	   call sp_ListarDetalleCompra();
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-
-
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- - Trigger -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- - -- Factura -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-
-call sp_EditarDetalleCompra(2, 10.00, 1, 'DFE-15', 2);
-
-DELIMITER $$
-
-	create trigger totalFactura_Factura
-	after update on DetalleCompra
-	for each row
-		begin
-			declare total_comprado decimal(10, 2);
-
-			-- Calcula el total gastado y la cantidad comprada del producto
-			set total_comprado = new.costoUnitario * new.cantidad;
-			
-			-- Actualiza los precios en Productos
-			update Factura
-			set Factura.totalFactura = total_comprado
-			where Factura.numeroFactura = new.codigoDetalleCompra;
-		END $$
-
-DELIMITER ;
-
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Procedimientos almacenados -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -1267,11 +1339,18 @@ Delimiter ;
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 
 -- Agregar empleado --
-	-- necesario para que funcione correctamente --
-    call sp_AgregarCargoEmpleado('Ingeniero de Software', 'Diseña, desarrolla y software.');
 
 call sp_AgregarEmpleado('Albert', 'Einstein', 3500.00, 'Zona 36', 'Matutina', 2);
 call sp_AgregarEmpleado('Oprah', 'Winfrey', 2450.00, 'Zona 12', 'Vespertina', 3);
+call sp_AgregarEmpleado('John', 'Doe', 2600.00, 'Zona 3', 'Matutina', 4);
+call sp_AgregarEmpleado('Jane', 'Smith', 2700.00, 'Zona 4', 'Nocturna', 5);
+call sp_AgregarEmpleado('Michael', 'Brown', 2550.00, 'Zona 5', 'Vespertina', 6);
+call sp_AgregarEmpleado('Emily', 'Davis', 2500.00, 'Zona 6', 'Matutina', 7);
+call sp_AgregarEmpleado('David', 'Wilson', 2650.00, 'Zona 7', 'Nocturna', 8);
+call sp_AgregarEmpleado('Sarah', 'Miller', 2750.00, 'Zona 8', 'Vespertina', 9);
+call sp_AgregarEmpleado('James', 'Anderson', 2800.00, 'Zona 9', 'Matutina', 10);
+call sp_AgregarEmpleado('Linda', 'Taylor', 2450.00, 'Zona 10', 'Nocturna', 11);
+call sp_AgregarEmpleado('Robert', 'Thomas', 2900.00, 'Zona 11', 'Vespertina', 2);
 
 -- Listar empleados --
 
@@ -1291,7 +1370,7 @@ call sp_EliminarEmpleado(1);
       
 -- Editar empleado --
 
-call sp_EditarEmpleado(2, 'Rafael', 'Rivas', 7000.00, 'Zona 10', 'Matutina', 2);
+call sp_EditarEmpleado(2, 'Rafael', 'Rivas', 7000.00, 'Zona 10', 'Matutina', 3);
 
 	-- Comprobacion --
     
@@ -1410,12 +1489,18 @@ Delimiter ;
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 
 -- Agregar factura --
-	-- necesario para que funcione correctamente --
-    call sp_AgregarClientes('114006350', 'Juan', 'Rivas', 'Zona 7', '23002626', 'mrodriguez-2023292@kinal.edu.gt');
-	call sp_AgregarEmpleado('Oprah', 'Winfrey', 2450.00, 'Zona 12', 'Vespertina', 3);
 
 call sp_AgregarFactura('Malo', '2024-07-14', 2, 2);
 call sp_AgregarFactura('Bueno', '2024-04-12', 3, 3);
+call sp_AgregarFactura('Bueno', '2024-07-15', 4, 4);
+call sp_AgregarFactura('Regular', '2024-07-16', 5, 5);
+call sp_AgregarFactura('Excelente', '2024-07-17', 6, 6);
+call sp_AgregarFactura('Deficiente', '2024-07-18', 7, 7);
+call sp_AgregarFactura('Adecuado', '2024-07-19', 8, 8);
+call sp_AgregarFactura('Pobre', '2024-07-20', 9, 9);
+call sp_AgregarFactura('Aceptable', '2024-07-21', 10, 10);
+call sp_AgregarFactura('Destacado', '2024-07-22', 11, 11);
+call sp_AgregarFactura('Mediocre', '2024-07-23', 2, 2);
 
 -- Listar factura --
 
@@ -1435,13 +1520,12 @@ call sp_EliminarFactura(1);
       
 -- Editar factura --
 
-call sp_EditarFactura(2, 'Buenisimo', '2024-12-24', 2, 2);
+call sp_EditarFactura(2, 'Buenisimo', '2024-12-24', 3, 3);
 
 	-- Comprobacion --
     
 	   call sp_ListarFacturas();
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- Procedimientos almacenados -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -1453,17 +1537,14 @@ call sp_EditarFactura(2, 'Buenisimo', '2024-12-24', 2, 2);
 Delimiter $$
 
 	create procedure sp_AgregarDetalleFactura(
-    in precioUnitario decimal(10,2),
     in cantidad int,
     in Factura_numeroFactura int,
     in Productos_codigoProducto varchar(15))
 		Begin
 			Insert into DetalleFactura(
-			precioUnitario,
 			cantidad ,
 			Factura_numeroFactura,
 			Productos_codigoProducto) values (
-			precioUnitario,
 			cantidad ,
 			Factura_numeroFactura,
 			Productos_codigoProducto);
@@ -1522,12 +1603,11 @@ Delimiter ;
 
 Delimiter $$
 
-	create procedure sp_EditarDetalleFactura(in codDF int, in precioU decimal(10,2), in cantidad int,
+	create procedure sp_EditarDetalleFactura(in codDF int, in cantidad int,
 			in F_numF int, in P_codP varchar(15))
 		Begin
 			Update DetalleFactura DF
 				set
-				DF.precioUnitario = precioU,
 				DF.cantidad = cantidad,
 				DF.Factura_numeroFactura = F_numF,
 				DF.Productos_codigoProducto = P_codP
@@ -1547,17 +1627,74 @@ Delimiter $$
         
 Delimiter ; 
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- -- -- -- -- -- -- -- Trigger -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+    
+delimiter $$
+
+		create trigger Calcular_totalFactura_IN
+		after insert on DetalleFactura
+		for each row
+		begin
+			declare total decimal(10, 2);
+
+			-- Calcula el total de la factura
+			select precioUnitario * cantidad
+			into total
+			from DetalleFactura
+			where Factura_numeroFactura = NEW.Factura_numeroFactura;
+
+			-- Actualiza el totalFactura en la tabla Factura
+			update Factura
+			set totalFactura = total
+			where numeroFactura = NEW.Factura_numeroFactura;
+		end$$
+
+delimiter ;
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- -- -- -- -- -- -- -- Trigger -- -- -- -- -- -- -- -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
+delimiter $$
+
+	create trigger Actualizar_precioU
+	before insert on DetalleFactura
+	for each row
+		begin
+		  declare precioU decimal(10, 2);
+            
+		  -- Obtener el total y la cantidad desde la entidad DetalleCompra
+		  select precioUnitario into precioU
+		  from Productos
+		  where codigoProducto = New.Productos_codigoProducto;
+       
+		  -- Asignar el precioUnitario al nuevo registro en DetalleFactura
+	      set new.precioUnitario = precioU;
+		end $$
+    
+delimiter ;
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 -- -- Llamado de procedimientos almacenados -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
 
 -- Agregar detalle factura --
-	-- necesario para que funcione correctamente --
-	call sp_AgregarFactura('Bueno', '2024-04-12', 3, 3);
-	call sp_AgregarProductos('ASD-48', 'Un brebaje mágico que promete rejuvenecer.', 6.00, 12.00, 90.00, 1275, 2, 2);
 
-call sp_AgregarDetalleFactura(10.00, 4, 2, 'DFE-15');
-call sp_AgregarDetalleFactura(10.00, 5, 3, 'ASD-48');
+call sp_AgregarDetalleFactura(4, 2, 'ABC-123');
+call sp_AgregarDetalleFactura(5, 3, 'DFE-15');
+call sp_AgregarDetalleFactura(6, 4, 'HJL-12');
+call sp_AgregarDetalleFactura(7, 5, 'LKP-09');
+call sp_AgregarDetalleFactura(8, 6, 'MNB-33');
+call sp_AgregarDetalleFactura(9, 7, 'PRQ-21');
+call sp_AgregarDetalleFactura(10, 8, 'VFT-07');
+call sp_AgregarDetalleFactura(11, 9, 'XRT-22');
+call sp_AgregarDetalleFactura(12, 10, 'XYZ-45');
+call sp_AgregarDetalleFactura(13, 11, 'ZQW-47');
 
 -- Listar detalle actura --
 
@@ -1577,10 +1714,10 @@ call sp_EliminarDetalleFactura(1);
       
 -- Editar detalle factura --
 
-call sp_EditarDetalleFactura(2, 11.00, 17, 3, 'ASD-48');
+call sp_EditarDetalleFactura(2, 17, 3, 'DFE-15');
 
 	-- Comprobacion --
-    
+	   call sp_AgregarDetalleFactura(14, 2, 'ABC-123');
 	   call sp_ListarDetalleFacturas();
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -1691,6 +1828,15 @@ Delimiter ;
 
 call sp_AgregarEmailProveedor('juan.martinez@techinnovators.com', 'Ingeniero de software senior en Tech Innovators, una empresa de desarrollo de tecnología de punta.', 2);
 call sp_AgregarEmailProveedor('maria.gomez@creativeagency.net', 'Directora creativa en Creative Agency, una agencia de publicidad y diseño gráfico.', 3);
+call sp_AgregarEmailProveedor('juan.perez@techinnovations.com', 'Gerente de proyectos en Tech Innovations, una empresa de desarrollo de software.', 4);
+call sp_AgregarEmailProveedor('laura.lopez@greenenergy.com', 'Ingeniera ambiental en Green Energy, una empresa de energías renovables.', 5);
+call sp_AgregarEmailProveedor('carlos.ramirez@healthtechsolutions.com', 'Director de ventas en HealthTech Solutions, una empresa de tecnología médica.', 6);
+call sp_AgregarEmailProveedor('ana.martinez@fintechstartups.org', 'CEO en FinTech Startups, una incubadora de empresas fintech.', 7);
+call sp_AgregarEmailProveedor('roberto.sanchez@logisticspro.com', 'Coordinador de logística en LogisticsPro, una empresa de logística y transporte.', 8);
+call sp_AgregarEmailProveedor('elena.garcia@edutechventures.edu', 'Directora de innovación en EduTech Ventures, una empresa de tecnología educativa.', 9);
+call sp_AgregarEmailProveedor('jose.martinez@smartcitysolutions.com', 'Analista de datos en Smart City Solutions, una empresa de soluciones urbanas inteligentes.', 10);
+call sp_AgregarEmailProveedor('marta.fernandez@cybersecure.com', 'Especialista en ciberseguridad en CyberSecure, una empresa de seguridad digital.', 11);
+call sp_AgregarEmailProveedor('pablo.rodriguez@biotechlabs.org', 'Investigador principal en BioTech Labs, una empresa de biotecnología.', 2);
 
 -- Listar email proveedor --
 
@@ -1710,7 +1856,7 @@ call sp_EliminarEmailProveedor(1);
       
 -- Editar email proveedor --
 
-call sp_EditarEmailProveedor(2, 'laura.lopez@greenfuture.org', 'Coordinadora de proyectos en Green Future, una organización sin fines de lucros.', 2);
+call sp_EditarEmailProveedor(2, 'laura.lopez@greenfuture.org', 'Coordinadora de proyectos en Green Future, una organización sin fines de lucros.', 3);
 
 	-- Comprobacion --
     
@@ -1830,6 +1976,16 @@ Delimiter ;
 
 call sp_AgregarTelefonoProveedor('47841452', '49632514', 'Le sabe a matematica', 2);
 call sp_AgregarTelefonoProveedor('35461872', '26531478', 'Tiene labia', 3);
+call sp_AgregarTelefonoProveedor('78945612', '12345678', 'Siempre disponible', 4);
+call sp_AgregarTelefonoProveedor('45612378', '87654321', 'Atención rápida', 5);
+call sp_AgregarTelefonoProveedor('74185296', '36925814', 'Servicio eficiente', 6);
+call sp_AgregarTelefonoProveedor('85274196', '14725836', 'Responde de inmediato', 7);
+call sp_AgregarTelefonoProveedor('96385274', '25814736', 'Muy profesional', 8);
+call sp_AgregarTelefonoProveedor('15975348', '35715948', 'Excelente comunicación', 9);
+call sp_AgregarTelefonoProveedor('35795148', '95135748', 'Alta disponibilidad', 10);
+call sp_AgregarTelefonoProveedor('75315984', '84135729', 'Amable y atento', 11);
+call sp_AgregarTelefonoProveedor('36925817', '17362589', 'Soluciones rápidas', 2);
+
 
 -- Listar telefono proveedor --
 
@@ -1849,7 +2005,7 @@ call sp_EliminarTelefonoProveedor(1);
       
 -- Editar telefono proveedor --
 
-call sp_EditarTelefonoProveedor(2, '49251075', '30154078', 'Tiene un traje elegante', 2);
+call sp_EditarTelefonoProveedor(2, '49251075', '30154078', 'Tiene un traje elegante', 3);
 
 	-- Comprobacion --
     
