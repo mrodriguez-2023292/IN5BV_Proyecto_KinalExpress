@@ -78,4 +78,9 @@ public class Empleados {
     public void setCargoEmpleado_codigoCargoEmpleado(int CargoEmpleado_codigoCargoEmpleado) {
         this.CargoEmpleado_codigoCargoEmpleado = CargoEmpleado_codigoCargoEmpleado;
     }
+    
+    @Override
+    public String toString() {
+        return ">> " + getNombreEmpleado();
+    }
 }

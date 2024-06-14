@@ -12,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.mariorodriguez.controller.CargosController;
 import org.mariorodriguez.controller.ComprasController;
+import org.mariorodriguez.controller.EmpleadosController;
+import org.mariorodriguez.controller.FacturaController;
 import org.mariorodriguez.controller.MenuClientesController;
 import org.mariorodriguez.controller.MenuPrincipalController;
 import org.mariorodriguez.controller.ProductosController;
@@ -64,7 +66,7 @@ public class Main extends Application {
     
     public void menuPrincipalView (){
         try{
-            MenuPrincipalController menuPrincipalView = (MenuPrincipalController)cambiarEscena("MenuPrincipalView.fxml", 613, 613);
+            MenuPrincipalController menuPrincipalView = (MenuPrincipalController)cambiarEscena("MenuPrincipalView.fxml", 669, 666);
             menuPrincipalView.setEscenarioPrincipal(this);  
         }catch(Exception e){
             e.printStackTrace();
@@ -129,6 +131,24 @@ public class Main extends Application {
         try{
             CargosController cargosView = (CargosController)cambiarEscena("CargoEmpleadosView.fxml", 1024, 575);
             cargosView.setEscenarioPrincipalCargos(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void empeladosView(){
+        try{
+            EmpleadosController empeladosView = (EmpleadosController)cambiarEscena("EmpleadosView.fxml", 1024, 576);
+            empeladosView.setEscenarioPrincipalEmpleados(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void facturaView(){
+        try{
+            FacturaController facturaView = (FacturaController)cambiarEscena("FacturaView.fxml", 1024, 576);
+            facturaView.setEscenarioPrincipalFactura(this);
         }catch(Exception e){
             e.printStackTrace();
         }
