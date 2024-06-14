@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProductos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="89e68f82-6c8f-4a50-830f-681da9837b54">
+	<property name="ireport.zoom" value="1.33100000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[call sp_ListarProductos]]>
+	</queryString>
+	<field name="codigoProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcionProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioUnitario" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioDocena" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioMayor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="imagenProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="existencia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TipoProducto_codigoTipoProducto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Proveedores_codigoProveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="555" height="802" uuid="1f95f489-4c71-46c4-8865-4334bf166d60"/>
+				<imageExpression><![CDATA["C:\\Users\\Mario\\Documents\\IN5BV_Proyecto_KinalExpress\\src\\org\\mariorodriguez\\images\\Membrete.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="19" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="107" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="86" width="15" height="20" uuid="4dd5b15a-4324-4a03-960f-a52ff7f93be1"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="86" width="67" height="20" uuid="5ad96470-893d-4028-86e4-c2d931f698d7"/>
+				<text><![CDATA[Precio unitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="86" width="67" height="20" uuid="994c909e-337a-4aea-9698-7d4190b97ac4"/>
+				<text><![CDATA[Precio docena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="86" width="61" height="20" uuid="e8b74f2c-41ad-4567-9680-519ff3e798c7"/>
+				<text><![CDATA[Precio mayor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="86" width="47" height="20" uuid="44a91c72-772d-4907-8514-210b1069ef05"/>
+				<text><![CDATA[Existencia]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="80" width="375" height="1" uuid="50122c0e-84f3-462d-a439-d910e6a824bd"/>
+			</line>
+			<line>
+				<reportElement x="1" y="106" width="375" height="1" uuid="4431ead2-6f02-405f-9028-c27e5b13e550"/>
+			</line>
+			<line>
+				<reportElement x="47" y="81" width="1" height="25" uuid="e4d3d4df-ea41-4796-b85f-972a9970183c"/>
+			</line>
+			<line>
+				<reportElement x="129" y="81" width="1" height="25" uuid="1e983258-94d4-4e14-88ab-9b4e960bca42"/>
+			</line>
+			<line>
+				<reportElement x="223" y="81" width="1" height="25" uuid="504f7eb5-83aa-408d-982a-94cb696cdb82"/>
+			</line>
+			<line>
+				<reportElement x="311" y="81" width="1" height="25" uuid="bccce77b-a5ed-4211-97d8-c07d609063c5"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="5" width="47" height="20" uuid="fdf53c80-1ec9-47b1-be18-8f776b502848"/>
+				<textFieldExpression><![CDATA[$F{codigoProducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="5" width="52" height="20" uuid="fe90640d-634e-4283-9c76-c1e9994f14ab"/>
+				<textFieldExpression><![CDATA[$F{precioUnitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="5" width="67" height="20" uuid="0df9be73-82f4-4097-a782-0b662fa7d31b"/>
+				<textFieldExpression><![CDATA[$F{precioDocena}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="5" width="61" height="20" uuid="9f76f869-1e38-48e0-8ae1-daa0dda96dbb"/>
+				<textFieldExpression><![CDATA[$F{precioMayor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="5" width="47" height="20" uuid="0edd0746-a5e7-4f80-b871-22c97ce8a375"/>
+				<textFieldExpression><![CDATA[$F{existencia}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="25" width="375" height="1" uuid="84be6aa4-bcc9-4884-a6af-fb64d6517d40"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="47" y="0" width="1" height="25" uuid="acebac44-3402-4769-939e-f7dbd5832a60"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="129" y="0" width="1" height="25" uuid="98398da1-f0f0-4fae-aab3-ae314fdd525a"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="223" y="0" width="1" height="25" uuid="8272400c-d911-4bfd-949b-cd9b9de37f12"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="311" y="0" width="1" height="25" uuid="01c33273-5bec-498a-b31a-aa749cf6f477"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
