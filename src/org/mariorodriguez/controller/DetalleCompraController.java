@@ -1,4 +1,4 @@
-
+    
 package org.mariorodriguez.controller;
 
 import java.net.URL;
@@ -100,12 +100,12 @@ public class DetalleCompraController implements Initializable{
     public Productos buscarP(String codigoProducto){
         Productos resultado = null;
         try{
-            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_BuscarDetalleCompra(?)}");
+            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_BuscarProducto(?)}");
             procedimiento.setString(1, codigoProducto);
             ResultSet registro = procedimiento.executeQuery();
             
             while(registro.next()){
-                resultado = new Productos(registro.getString("estado"),
+                resultado = new Productos(registro.getString("codigoProducto"),
                                               registro.getString("descripcionProducto"),
                                               registro.getDouble("precioUnitario"),
                                               registro.getDouble("precioDocena"),
