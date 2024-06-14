@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProveedores" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="61a1f29e-28df-4bb6-87e3-c65dc686738d">
 	<property name="ireport.zoom" value="3.1384283767210595"/>
-	<property name="ireport.x" value="40"/>
-	<property name="ireport.y" value="493"/>
+	<property name="ireport.x" value="63"/>
+	<property name="ireport.y" value="349"/>
 	<queryString>
 		<![CDATA[call sp_ListarProveedores]]>
 	</queryString>
@@ -53,19 +53,19 @@
 	<columnHeader>
 		<band height="50" splitType="Stretch">
 			<staticText>
-				<reportElement x="33" y="29" width="100" height="20" uuid="526da364-b8b3-4f11-9751-b094ae88c5a8"/>
+				<reportElement x="71" y="29" width="22" height="20" uuid="526da364-b8b3-4f11-9751-b094ae88c5a8"/>
 				<text><![CDATA[NIT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="164" y="29" width="100" height="20" uuid="195b1fcb-dfd6-4b43-8e7e-060b01a0cd82"/>
+				<reportElement x="180" y="29" width="36" height="20" uuid="195b1fcb-dfd6-4b43-8e7e-060b01a0cd82"/>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="29" width="100" height="20" uuid="15181d43-8a89-4a8c-ab77-ba2253a27c18"/>
+				<reportElement x="289" y="29" width="82" height="20" uuid="15181d43-8a89-4a8c-ab77-ba2253a27c18"/>
 				<text><![CDATA[Contacto principal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="428" y="29" width="100" height="20" uuid="04b09654-44fd-4ed1-b34e-10b8e8b9537f"/>
+				<reportElement x="434" y="29" width="55" height="20" uuid="04b09654-44fd-4ed1-b34e-10b8e8b9537f"/>
 				<text><![CDATA[Pagina web]]></text>
 			</staticText>
 			<line>

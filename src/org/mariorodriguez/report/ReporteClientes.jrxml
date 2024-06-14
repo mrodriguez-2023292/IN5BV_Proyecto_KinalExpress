@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteClientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95fbb033-d31c-4cf3-aea2-348bdf7cf7a2">
-	<property name="ireport.zoom" value="3.797498335832422"/>
-	<property name="ireport.x" value="137"/>
-	<property name="ireport.y" value="740"/>
+	<property name="ireport.zoom" value="4.177248169415665"/>
+	<property name="ireport.x" value="303"/>
+	<property name="ireport.y" value="913"/>
 	<queryString>
 		<![CDATA[call sp_listarClientes]]>
 	</queryString>
@@ -44,19 +44,19 @@
 	<columnHeader>
 		<band height="48" splitType="Stretch">
 			<staticText>
-				<reportElement x="22" y="26" width="100" height="20" uuid="266b2939-9662-4e77-9fc6-4ff63f0f1598"/>
+				<reportElement x="61" y="26" width="17" height="20" uuid="266b2939-9662-4e77-9fc6-4ff63f0f1598"/>
 				<text><![CDATA[NIT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="147" y="26" width="100" height="20" uuid="af8ad15b-33ae-461c-a7e1-92c5eb905bee"/>
+				<reportElement x="167" y="26" width="36" height="20" uuid="af8ad15b-33ae-461c-a7e1-92c5eb905bee"/>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="281" y="26" width="100" height="20" uuid="c6572b2d-9e4e-462b-b784-deaad3571f50"/>
+				<reportElement x="299" y="26" width="34" height="20" uuid="c6572b2d-9e4e-462b-b784-deaad3571f50"/>
 				<text><![CDATA[Correo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="415" y="26" width="100" height="20" uuid="48359662-0c90-4cde-a4c4-167a604580e2"/>
+				<reportElement x="430" y="26" width="43" height="20" uuid="48359662-0c90-4cde-a4c4-167a604580e2"/>
 				<text><![CDATA[Direccion]]></text>
 			</staticText>
 			<line>
@@ -91,7 +91,7 @@
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="147" y="11" width="100" height="20" uuid="a6782589-87c9-40d8-902d-02f30df9e6c2"/>
+				<reportElement x="124" y="10" width="100" height="20" uuid="a6782589-87c9-40d8-902d-02f30df9e6c2"/>
 				<textFieldExpression><![CDATA[$F{nombreCliente}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -99,11 +99,11 @@
 				<textFieldExpression><![CDATA[$F{NITcliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="281" y="10" width="100" height="20" uuid="597246c1-2f54-40cc-acfc-cb9e3543f3a8"/>
+				<reportElement x="249" y="10" width="100" height="20" uuid="597246c1-2f54-40cc-acfc-cb9e3543f3a8"/>
 				<textFieldExpression><![CDATA[$F{correoCliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="415" y="11" width="100" height="20" uuid="8165b0e2-06f6-4e33-8dbc-5c2b7fd0a5f4"/>
+				<reportElement x="383" y="10" width="100" height="20" uuid="8165b0e2-06f6-4e33-8dbc-5c2b7fd0a5f4"/>
 				<textFieldExpression><![CDATA[$F{direccionCliente}]]></textFieldExpression>
 			</textField>
 			<line>

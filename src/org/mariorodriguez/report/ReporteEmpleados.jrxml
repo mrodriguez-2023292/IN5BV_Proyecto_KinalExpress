@@ -1,19 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpleados" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4cd2e99c-66b1-43a2-b8e1-baeee74b1b28">
+	<property name="ireport.zoom" value="6.115909044841516"/>
+	<property name="ireport.x" value="2327"/>
+	<property name="ireport.y" value="1285"/>
+	<queryString>
+		<![CDATA[call sp_ListarEmpleados]]>
+	</queryString>
+	<field name="codigoEmpleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreEmpleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidoEmpleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sueldo" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccionEmpleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="turno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CargoEmpleado_codigoCargoEmpleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
-		<band splitType="Stretch"/>
+		<band height="802" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="555" height="802" uuid="c79171e6-c384-4e83-ac73-8fa2b79090d7"/>
+				<imageExpression><![CDATA["C:\\Users\\Mario\\Documents\\IN5BV_Proyecto_KinalExpress\\src\\org\\mariorodriguez\\images\\Membrete.jpg"]]></imageExpression>
+			</image>
+		</band>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="108" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="43" y="24" width="14" height="20" uuid="98e6aa6d-391f-4895-9c2f-0859769b6a81"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="24" width="38" height="20" uuid="e8c41743-5f03-4ac1-9e1a-2d9a83ff43fa"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="23" width="37" height="20" uuid="43a3e90f-2f56-4d34-8e39-7e52561ff1c3"/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="24" width="30" height="20" uuid="0505e500-1929-48d6-8fd7-17748d43be75"/>
+				<text><![CDATA[Turno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="24" width="29" height="20" uuid="5110890b-edc0-449a-a1d8-12ec1452e312"/>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="18" width="515" height="1" uuid="75eca94b-1c39-4179-a299-fbfb34f235ef"/>
+			</line>
+			<line>
+				<reportElement x="30" y="43" width="515" height="1" uuid="5da19293-0178-423e-b162-d54535558358"/>
+			</line>
+			<line>
+				<reportElement x="67" y="19" width="1" height="24" uuid="c36301cc-edf2-4a2a-aeba-13e77070a5a0"/>
+			</line>
+			<line>
+				<reportElement x="193" y="19" width="1" height="24" uuid="413ac36b-ba69-4fc6-bf73-7aa42c58dea8"/>
+			</line>
+			<line>
+				<reportElement x="309" y="19" width="1" height="24" uuid="53ce5873-a4cc-46e3-9e99-2c174dc391fc"/>
+			</line>
+			<line>
+				<reportElement x="432" y="19" width="1" height="24" uuid="a9106a49-b624-4662-9c3a-88d2c19bcda8"/>
+			</line>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="53" y="12" width="13" height="20" uuid="0a1f8844-9960-4944-8bdc-5e36ed2b6b7d"/>
+				<textFieldExpression><![CDATA[$F{codigoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="12" width="100" height="20" uuid="df18d556-68c5-41ed-8140-1ab5ce04b2e0"/>
+				<textFieldExpression><![CDATA[$F{nombreEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="12" width="100" height="20" uuid="f5ff69a7-4c25-40b3-bf0f-2d06de2dabe6"/>
+				<textFieldExpression><![CDATA[$F{apellidoEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="12" width="100" height="20" uuid="2f58c27c-63a9-43c2-8e54-2eb7cc676526"/>
+				<textFieldExpression><![CDATA[$F{turno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="12" width="100" height="20" uuid="f64e0454-d8b4-4a09-a91e-8f954fdd838b"/>
+				<textFieldExpression><![CDATA[$F{CargoEmpleado_codigoCargoEmpleado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="30" y="32" width="515" height="1" uuid="927be85c-d9ee-4f14-84e5-fa3ee26250d6"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="67" y="0" width="1" height="32" uuid="fa32741b-6933-4de4-89d3-bb20cdecbf7f"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="193" y="0" width="1" height="32" uuid="c6198178-bce6-427f-baa8-fdcbe288c421"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="309" y="0" width="1" height="32" uuid="8fc97b24-066f-4bc4-95f2-2adc460630cb"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="432" y="0" width="1" height="32" uuid="efcc5c11-d9e3-44f9-af2b-35bcccbc53ef"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
@@ -21,7 +143,4 @@
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
