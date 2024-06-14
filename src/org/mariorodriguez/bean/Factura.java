@@ -68,4 +68,9 @@ public class Factura {
     public void setEmpleados_codigoEmpleado(int Empleados_codigoEmpleado) {
         this.Empleados_codigoEmpleado = Empleados_codigoEmpleado;
     }
+    
+    @Override
+    public String toString() {
+        return ">> " + getEstado();
+    }
 }

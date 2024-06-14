@@ -12,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.mariorodriguez.controller.CargosController;
 import org.mariorodriguez.controller.ComprasController;
+import org.mariorodriguez.controller.DetalleCompraController;
+import org.mariorodriguez.controller.DetalleFacturaController;
 import org.mariorodriguez.controller.EmpleadosController;
 import org.mariorodriguez.controller.FacturaController;
 import org.mariorodriguez.controller.MenuClientesController;
@@ -149,6 +151,24 @@ public class Main extends Application {
         try{
             FacturaController facturaView = (FacturaController)cambiarEscena("FacturaView.fxml", 1024, 576);
             facturaView.setEscenarioPrincipalFactura(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void detalleFacturaView(){
+        try{
+            DetalleFacturaController detalleFacturaView = (DetalleFacturaController)cambiarEscena("DetalleFacturaView.fxml", 1024, 576);
+            detalleFacturaView.setEscenarioPrincipalDetalleFactura(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void detalleCompraView(){
+        try{
+            DetalleCompraController detalleCompraView = (DetalleCompraController)cambiarEscena("DetalleCompraView.fxml", 1024, 576);
+            detalleCompraView.setEscenarioPrincipalDetalleCompra(this);
         }catch(Exception e){
             e.printStackTrace();
         }

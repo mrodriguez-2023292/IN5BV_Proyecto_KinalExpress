@@ -51,10 +51,6 @@ public class ProductosController implements Initializable{
     /*Textos*/
     @FXML private TextField txtCodPro;
     @FXML private TextField txtDescripcion;
-    @FXML private TextField txtExistencia;
-    @FXML private TextField txtPrecioU;
-    @FXML private TextField txtPrecioD;
-    @FXML private TextField txtPrecioM;
     
     /*Combo box*/
     @FXML private ComboBox cmdIDTP;
@@ -99,10 +95,6 @@ public class ProductosController implements Initializable{
     public void selecionarElemento(){
         txtCodPro.setText(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getCodigoProducto());
         txtDescripcion.setText(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getDescripcionProducto());
-        txtPrecioU.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getPrecioUnitario()));
-        txtPrecioD.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getPrecioDocena()));
-        txtPrecioM.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getPrecioMayor()));
-        txtExistencia.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getExistencia()));
         cmdIDTP.getSelectionModel().select(buscarTP(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getTipoProducto_codigoTipoProducto()));
     }
     
@@ -221,21 +213,13 @@ public class ProductosController implements Initializable{
         registro.setProveedores_codigoProveedor(((Proveedores)cmbProveedores.getSelectionModel().getSelectedItem()).getCodigoProveedor());
         registro.setTipoProducto_codigoTipoProducto(((TipoProductos)cmdIDTP.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
         registro.setDescripcionProducto(txtDescripcion.getText());
-        registro.setPrecioUnitario(Double.parseDouble(txtPrecioU.getText()));
-        registro.setPrecioDocena(Double.parseDouble(txtPrecioD.getText()));
-        registro.setPrecioMayor(Double.parseDouble(txtPrecioM.getText()));
-        registro.setExistencia(Integer.parseInt(txtExistencia.getText()));
 
         try{
-            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?)}");
             procedimiento.setString(1, registro.getCodigoProducto());
             procedimiento.setString(2, registro.getDescripcionProducto());
-            procedimiento.setDouble(3, registro.getPrecioUnitario());
-            procedimiento.setDouble(4, registro.getPrecioDocena());
-            procedimiento.setDouble(5, registro.getPrecioMayor());
-            procedimiento.setInt(6, registro.getExistencia());
-            procedimiento.setInt(7, registro.getTipoProducto_codigoTipoProducto());
-            procedimiento.setInt(8, registro.getProveedores_codigoProveedor());
+            procedimiento.setInt(3, registro.getTipoProducto_codigoTipoProducto());
+            procedimiento.setInt(4, registro.getProveedores_codigoProveedor());
             procedimiento.execute();
             
             listarProductos.add(registro);
@@ -331,26 +315,18 @@ public class ProductosController implements Initializable{
     
     public void actualizarProducto(){
         try{
-            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_EditarProducto(?, ?, ?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstancia().getConexion().prepareCall("{call sp_EditarProducto(?, ?, ?, ?)}");
             Productos registro = (Productos)tblProductos.getSelectionModel().getSelectedItem();
             
             registro.setCodigoProducto(txtCodPro.getText());
             registro.setProveedores_codigoProveedor(((Proveedores)cmbProveedores.getSelectionModel().getSelectedItem()).getCodigoProveedor());
             registro.setTipoProducto_codigoTipoProducto(((TipoProductos)cmdIDTP.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
             registro.setDescripcionProducto(txtDescripcion.getText());
-            registro.setPrecioUnitario(Double.parseDouble(txtPrecioU.getText()));
-            registro.setPrecioDocena(Double.parseDouble(txtPrecioD.getText()));
-            registro.setPrecioMayor(Double.parseDouble(txtPrecioM.getText()));
-            registro.setExistencia(Integer.parseInt(txtExistencia.getText()));
             
             procedimiento.setString(1, registro.getCodigoProducto());
             procedimiento.setString(2, registro.getDescripcionProducto());
-            procedimiento.setDouble(3, registro.getPrecioUnitario());
-            procedimiento.setDouble(4, registro.getPrecioDocena());
-            procedimiento.setDouble(5, registro.getPrecioMayor());
-            procedimiento.setInt(6, registro.getExistencia());
-            procedimiento.setInt(7, registro.getTipoProducto_codigoTipoProducto());
-            procedimiento.setInt(8, registro.getProveedores_codigoProveedor());
+            procedimiento.setInt(3, registro.getTipoProducto_codigoTipoProducto());
+            procedimiento.setInt(4, registro.getProveedores_codigoProveedor());
             procedimiento.execute();
 
             listarProductos.add(registro);
@@ -362,10 +338,6 @@ public class ProductosController implements Initializable{
     public void activarTxtPro(){
         txtCodPro.setDisable(false);
         txtDescripcion.setDisable(false);
-        txtExistencia.setDisable(false);
-        txtPrecioU.setDisable(false);
-        txtPrecioD.setDisable(false);
-        txtPrecioM.setDisable(false);
         cmdIDTP.setDisable(false);
         cmbProveedores.setDisable(false);
     }
@@ -373,10 +345,6 @@ public class ProductosController implements Initializable{
     public void desactivarTxtPro(){
         txtCodPro.setDisable(true);
         txtDescripcion.setDisable(true);
-        txtExistencia.setDisable(true);
-        txtPrecioU.setDisable(true);
-        txtPrecioD.setDisable(true);
-        txtPrecioM.setDisable(true);
         cmdIDTP.setDisable(true);
         cmbProveedores.setDisable(true);
     }
@@ -384,10 +352,6 @@ public class ProductosController implements Initializable{
     public void limpiarControles(){
         txtCodPro.clear();
         txtDescripcion.clear();
-        txtExistencia.clear();
-        txtPrecioU.clear();
-        txtPrecioD.clear();
-        txtPrecioM.clear();
         cmdIDTP.getSelectionModel().getSelectedItem();
         cmbProveedores.getSelectionModel().getSelectedItem();
     }

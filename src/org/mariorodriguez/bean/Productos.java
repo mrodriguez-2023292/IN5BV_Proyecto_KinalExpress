@@ -88,4 +88,9 @@ public class Productos {
     public void setProveedores_codigoProveedor(int Proveedores_codigoProveedor) {
         this.Proveedores_codigoProveedor = Proveedores_codigoProveedor;
     }
+    
+    @Override
+    public String toString() {
+        return ">> " + getDescripcionProducto();
+    }
 }

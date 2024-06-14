@@ -24,6 +24,8 @@ public class MenuPrincipalController implements Initializable{
     @FXML private MenuItem btnCargos;
     @FXML private MenuItem btnEmpleados;
     @FXML private MenuItem btnFactura;
+    @FXML private MenuItem btnDetalleFactura;
+    @FXML private MenuItem btnDetalleCompras;
     @FXML private Button btnSalir;
     
     @Override
@@ -59,6 +61,10 @@ public class MenuPrincipalController implements Initializable{
             escenarioPrincipal.empeladosView();
         }else if(evento.getSource() == btnFactura){
             escenarioPrincipal.facturaView();
+        }else if(evento.getSource() == btnDetalleFactura){
+            escenarioPrincipal.detalleFacturaView();
+        }else if(evento.getSource() == btnDetalleCompras){
+            escenarioPrincipal.detalleCompraView();
         }else if(evento.getSource() == btnSalir){
             System.exit(0);
         }

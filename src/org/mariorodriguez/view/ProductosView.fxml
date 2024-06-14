@@ -91,7 +91,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <GridPane alignment="CENTER_RIGHT" layoutX="-100.0" layoutY="388.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="736.0">
+      <GridPane alignment="CENTER_RIGHT" layoutX="29.0" layoutY="388.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="736.0">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="240.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="496.0" />
@@ -108,38 +108,7 @@
             <TextField fx:id="txtDescripcion" alignment="CENTER" layoutX="82.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <GridPane alignment="CENTER_RIGHT" layoutX="659.0" layoutY="392.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="98.0" prefWidth="292.0">
-         <columnConstraints>
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="111.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="181.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="200.0" minHeight="20.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="200.0" minHeight="20.0" prefHeight="70.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="200.0" minHeight="20.0" prefHeight="45.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <TextField fx:id="txtPrecioD" alignment="CENTER" layoutX="226.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" layoutX="31.0" layoutY="8.0" nodeOrientation="LEFT_TO_RIGHT" text=" = Precio docena" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtPrecioM" alignment="CENTER" layoutX="142.0" layoutY="8.0" nodeOrientation="LEFT_TO_RIGHT" GridPane.rowIndex="2" />
-            <TextField fx:id="txtPrecioU" alignment="CENTER" layoutX="142.0" layoutY="28.0" nodeOrientation="LEFT_TO_RIGHT" />
-            <Label alignment="BASELINE_LEFT" nodeOrientation="LEFT_TO_RIGHT" text=" = Precio unitario" GridPane.columnIndex="1" GridPane.halignment="LEFT">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text=" = Precio mayor" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
-      <GridPane alignment="CENTER_RIGHT" layoutX="240.0" layoutY="428.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="400.0">
+      <GridPane alignment="CENTER_RIGHT" layoutX="368.0" layoutY="428.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="400.0">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="242.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="158.0" />
@@ -156,7 +125,7 @@
             <ComboBox fx:id="cmdIDTP" prefWidth="150.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <GridPane alignment="CENTER_RIGHT" layoutX="242.0" layoutY="458.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="400.0">
+      <GridPane alignment="CENTER_RIGHT" layoutX="370.0" layoutY="458.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="400.0">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="238.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="162.0" />
@@ -173,24 +142,7 @@
             <ComboBox fx:id="cmbProveedores" prefWidth="150.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <GridPane alignment="CENTER_RIGHT" layoutX="24.0" layoutY="429.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="327.0">
-         <columnConstraints>
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="116.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="211.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="102.33331298828125" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="154.0" layoutY="30.0" nodeOrientation="RIGHT_TO_LEFT" text="Existencia: " GridPane.halignment="RIGHT">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtExistencia" alignment="CENTER" layoutX="82.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="218.0" GridPane.columnIndex="1" />
-         </children>
-      </GridPane>
-      <GridPane alignment="CENTER_RIGHT" layoutX="24.0" layoutY="458.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="327.0">
+      <GridPane alignment="CENTER_RIGHT" layoutX="145.0" layoutY="428.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="327.0">
          <columnConstraints>
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="116.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="211.0" />

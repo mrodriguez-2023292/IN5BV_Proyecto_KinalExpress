@@ -32,6 +32,10 @@
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="btnFactura" mnemonicParsing="false" onAction="#click" text="Factura" />
                   <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnDetalleFactura" mnemonicParsing="false" onAction="#click" text="Detalle factura" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnDetalleCompras" mnemonicParsing="false" onAction="#click" text="Detalle compras" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="btnCargos" mnemonicParsing="false" onAction="#click" text="Cargos" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="btnEmpleados" mnemonicParsing="false" onAction="#click" text="Empleados" />

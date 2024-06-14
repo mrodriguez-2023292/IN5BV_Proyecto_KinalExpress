@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mariorodriguez.controller.DetalleFacturaController">
+<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mariorodriguez.controller.DetalleCompraController">
    <children>
       <ImageView fitHeight="579.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/DetalleFacturaView.jpg" />
+            <Image url="@../images/DetalleCompraView.jpg" />
          </image>
       </ImageView>
       <GridPane alignment="CENTER" layoutX="300.0" layoutY="340.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="425.0">
@@ -32,7 +32,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="btnEliminar" layoutY="13.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#eliminarDetalleFactura" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Eliminar" GridPane.columnIndex="1">
+            <Button fx:id="btnEliminar" layoutY="13.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#eliminarDetalleCompra" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Eliminar" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fx:id="imgEliminar" fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnEditar" layoutY="82.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#editarDetalleFactura" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Editar" GridPane.columnIndex="2">
+            <Button fx:id="btnEditar" layoutY="82.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#editarDetalleCompra" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Editar" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fx:id="imgEditar" fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -59,7 +59,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnAgregar" layoutX="10.0" layoutY="104.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#agregarDetalleFactura" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Agregar">
+            <Button fx:id="btnAgregar" layoutX="10.0" layoutY="104.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#agregarDetalleCompra" prefWidth="50.0" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css" text="Agregar">
                <graphic>
                   <ImageView fx:id="imgAgregar" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -70,13 +70,13 @@
             </Button>
          </children>
       </GridPane>
-      <TableView fx:id="tblDetalleFactura" layoutX="190.0" layoutY="156.0" onMouseClicked="#selecionarElemento" prefHeight="165.0" prefWidth="647.0" styleClass="table-row-cell" stylesheets="@../resource/KinalRapiCSS.css">
+      <TableView fx:id="tblDetalleCompra" layoutX="190.0" layoutY="156.0" onMouseClicked="#selecionarElemento" prefHeight="165.0" prefWidth="647.0" styleClass="table-row-cell" stylesheets="@../resource/KinalRapiCSS.css">
          <columns>
             <TableColumn fx:id="colID" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" text="ID" />
-            <TableColumn fx:id="colPrecioU" minWidth="152.0" prefWidth="20.0" text="Precio unitario" />
+            <TableColumn fx:id="colCostoU" minWidth="152.0" prefWidth="20.0" text="Costo unitario" />
             <TableColumn fx:id="colCantidad" minWidth="152.0" prefWidth="20.0" text="Cantidad" />
-            <TableColumn fx:id="colIdFactura" minWidth="152.0" prefWidth="20.0" text="ID_Factura" />
             <TableColumn fx:id="colIdProductos" minWidth="152.0" prefWidth="20.0" text="ID_Productos" />
+            <TableColumn fx:id="colIdCompras" minWidth="152.0" prefWidth="20.0" text="ID_Compras" />
          </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="7.0" layoutY="531.0" mnemonicParsing="false" onAction="#clickMenuPrincipal" styleClass="button3" stylesheets="@../resource/KinalRapiCSS.css">
@@ -88,7 +88,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <GridPane alignment="CENTER_RIGHT" layoutX="340.0" layoutY="401.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="170.0">
+      <GridPane alignment="CENTER_RIGHT" layoutX="334.0" layoutY="446.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="176.0">
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="99.0" />
@@ -115,12 +115,12 @@
             <RowConstraints maxHeight="102.33331298828125" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" text="= ID_Factura" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+            <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" text="= ID_Productos" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cmbIdFactura" layoutX="90.0" layoutY="20.0" prefWidth="150.0" />
+            <ComboBox fx:id="cmbIdProductos" layoutX="90.0" layoutY="20.0" prefWidth="150.0" />
          </children>
       </GridPane>
       <GridPane alignment="CENTER_RIGHT" layoutX="516.0" layoutY="438.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="38.0" prefWidth="267.0">
@@ -132,12 +132,30 @@
             <RowConstraints maxHeight="102.33331298828125" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" text="= ID_Productos" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+            <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" text="= ID_Compras" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cmbIdProductos" layoutX="90.0" layoutY="20.0" prefWidth="150.0" />
+            <ComboBox fx:id="cmbIdCompras" layoutX="90.0" layoutY="20.0" prefWidth="150.0" />
+         </children>
+      </GridPane>
+      <GridPane alignment="CENTER_RIGHT" layoutX="275.0" layoutY="406.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="235.0">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="324.0" minWidth="29.0" prefWidth="99.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="615.0" minWidth="10.0" prefWidth="78.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="102.33331298828125" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="154.0" layoutY="30.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="109.0" text="Costo unitario: " GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCostoU" alignment="CENTER" layoutX="82.0" layoutY="30.0" nodeOrientation="LEFT_TO_RIGHT" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>
